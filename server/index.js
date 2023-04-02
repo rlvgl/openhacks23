@@ -55,7 +55,8 @@ const Connect = async () => {
 			res.json({ msg: 'success', id: id });
 		});
 
-		PORT = 8000;
+		PORT = process.env.PORT || 8000;
+		const host = '0.0.0.0';
 		app.listen(PORT, () => console.log(`listening on ${PORT}`));
 	} catch (e) {}
 };

@@ -9,7 +9,7 @@ const add10 = () => {
 	for (let i = 0; i < 10; i++) {
 		axios({
 			method: 'post',
-			url: 'http://localhost:8000/api/files',
+			url: 'https://phoenix-files-server.herokuapp.com/api/files',
 			data: {
 				content: 'a lot of content is here',
 				title: 'unique title goes here',

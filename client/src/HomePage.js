@@ -9,7 +9,7 @@ import { sampleMD } from './FilePage';
 // helper function to populate db
 const add10 = () => {
 	for (let i = 0; i < 10; i++) {
-		axios.post('http://localhost:8000/api/files', {
+		axios.post('https://phoenix-files-server.herokuapp.com/api/files', {
 			title: 'Sample Markdown File',
 			content: sampleMD,
 			tags: ['ethereum', 'chatgpt', 'ai', 'ml', 'machine learning'],
@@ -27,22 +27,28 @@ const HomePage = () => {
 	const onSearch = () => {
 		if (!search) {
 			setSearchActive(false);
-			axios.get('http://localhost:8000/api/files').then((res) => {
-				setFiles(res.data.rows);
-			});
+			axios
+				.get('https://phoenix-files-server.herokuapp.com/api/files')
+				.then((res) => {
+					setFiles(res.data.rows);
+				});
 			return;
 		}
 
 		axios
-			.get(`http://localhost:8000/api/files?tags=${search}`)
+			.get(
+				`https://phoenix-files-server.herokuapp.com/api/files?tags=${search}`
+			)
 			.then((res) => setFiles(res.data.rows));
 		setSearchActive(true);
 	};
 
 	useEffect(() => {
-		axios.get('http://localhost:8000/api/files').then((res) => {
-			setFiles(res.data.rows);
-		});
+		axios
+			.get('https://phoenix-files-server.herokuapp.com/api/files')
+			.then((res) => {
+				setFiles(res.data.rows);
+			});
 	}, []);
 
 	return (

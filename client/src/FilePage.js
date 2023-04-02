@@ -109,9 +109,11 @@ const FilePage = () => {
 	const [file, setFile] = useState({});
 
 	useEffect(() => {
-		axios.get(`http://localhost:8000/api/files/${id}`).then((res) => {
-			setFile(res.data.rows);
-		});
+		axios
+			.get(`https://phoenix-files-server.herokuapp.com/api/files/${id}`)
+			.then((res) => {
+				setFile(res.data.rows);
+			});
 	}, []);
 
 	return (

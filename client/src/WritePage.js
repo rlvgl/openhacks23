@@ -14,7 +14,7 @@ const WritePage = () => {
 
 	const handleSubmit = () => {
 		axios
-			.post('http://localhost:8000/api/files/', {
+			.post('https://phoenix-files-server.herokuapp.com/api/files/', {
 				title: title,
 				content: md,
 				tags: tags,
@@ -36,7 +36,6 @@ const WritePage = () => {
 			)}
 
 			<div style={styles.titleDiv}>
-				{/* <Typography level='h4'>Title:</Typography> */}
 				<input
 					placeholder='Title'
 					onChange={(e) => {
